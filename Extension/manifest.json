@@ -1,0 +1,36 @@
+{
+  "name": "phish",
+  "version": "2.0.0",
+  "description": "A URL analysis tool for detecting phishing attempts",
+  "manifest_version": 2,
+  "author": "nvn",
+  "background": {
+    "scripts": ["script.js"],
+    "persistent": true
+  },
+  "permissions": [
+    "storage",
+    "activeTab",
+    "tabs",
+    "notifications",
+    "webRequestBlocking",
+    "http://*/*",
+    "https://*/*"
+  ],
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["script1.js", "script.js"]
+    }
+  ],
+  "icons": {
+    "48": "/images/Capture9.PNG"
+  },
+  "browser_action": {
+    "default_popup": "index.html",
+    "default_icon": {
+      "48": "/images/Capture9.PNG"
+    }
+  }
+}
